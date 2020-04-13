@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.scss';
-import List from '../List/List.js';
-import {settings, pageContents, listData} from '../../data/dataStore';
+import List from '../List/ListContainer.js';
+import {settings, listData} from '../../data/dataStore';
 import PropTypes from 'prop-types';
 import Creator from '../Creator/Creator.js';
 
@@ -11,6 +11,8 @@ class App extends React.Component {
   }
 
   static propTypes = {
+    title: PropTypes.node,
+    subtitle: PropTypes.node,
     lists: PropTypes.array,
   }
 
@@ -32,15 +34,16 @@ class App extends React.Component {
   }
 
   render() {
+    const {title, subtitle, lists} = this.props;
     return (
       <main className={styles.component}>
-        <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
         <div className={styles.creator}>
           <Creator text={settings.listCreatorText} action={title => this.addList(title, settings.listImage, settings.defaultListDescription)}/>
         </div>
-        {this.state.lists.map(({key, ...listProps}) => (
-          <List key={key} {...listProps} />
+        {lists.map(listData => (
+          <List key={listData.id} {...listData} />
         ))}
       </main>
     );
