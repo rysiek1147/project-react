@@ -1,10 +1,13 @@
 export const settings = {
+  listCreatorText: 'Add new list',
+  listImage: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
   creator: {
     buttonOK: 'OK',
     buttonCancel: 'Cancel',
     defaultText: 'Add new item',
+    cancelConfirmText: 'Do you really want to cancel changes?',
   },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
