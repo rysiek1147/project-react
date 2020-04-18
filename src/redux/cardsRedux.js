@@ -1,5 +1,10 @@
 import shortid from 'shortid';
+//import * as selectors from '../redux/selectors/cards';
+//import * as actions from '../redux/actions/cards';
+//import reducer from '../redux/reducers/cards'; 
 
+
+//export default { actions, reducer, selectors};
 // selectors
 export const getCardsForColumn = ({cards, searchString}, columnId) => cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title));
 

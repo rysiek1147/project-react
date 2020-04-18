@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import App from './App';
-import {createActionAddList} from '../../redux/listsRedux.js';
+import * as listsActions from '../../redux/actions/lists';
 
 const mapStateToProps = state => ({
   title: state.app.title,
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  addList: title => dispatch(createActionAddList({
+  addList: title => dispatch(listsActions.createActionAddList({
     listId: props.id,
     title,
   })),

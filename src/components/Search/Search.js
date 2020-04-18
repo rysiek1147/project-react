@@ -12,6 +12,7 @@ class Search extends React.Component {
     changeSearchString: PropTypes.func,
     countVisible: PropTypes.number,
     countAll: PropTypes.number,
+    value: PropTypes.string,
   }
 
   static defaultProps = {
@@ -23,13 +24,14 @@ class Search extends React.Component {
   }
 
   handleChange(event){
+    const {value} = event.target;
     this.setState({
-      value: event.target.value,
-      visibleButtons: event.target.value.length > 0,
+      value: value,
+      visibleButtons: value.length > 0,
     });
   }
 
-  handleOK(){
+  handleSuccess(){
     this.props.changeSearchString(this.state.value);
   }
 
@@ -52,7 +54,7 @@ class Search extends React.Component {
           onChange={event => this.handleChange(event)}
         />
         <div className={styles.buttons}>
-          <Button onClick={() => this.handleOK()}><Icon name={icon} /></Button>
+          <Button onClick={() => this.handleSuccess()}><Icon name={icon} /></Button>
         </div>
         <div>
           { countVisible == countAll ? '' : `${countVisible} / ${countAll}` }

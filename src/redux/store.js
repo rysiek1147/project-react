@@ -1,9 +1,9 @@
 import {combineReducers, createStore} from 'redux';
 import initialStoreData from '../data/dataStore';
-import listReducer from './listsRedux';
-import columnsReducer from './columnsRedux';
-import cardsReducer from './cardsRedux';
-import searchString from './searchStringRedux';
+import listReducer from '../redux/reducers/lists';
+import columnsReducer from '../redux/reducers/columns';
+import cardsReducer from '../redux/reducers/cards';
+import searchStringReducer from '../redux/reducers/searchString';
 
 // define initial state and shallow-merge initial data
 const initialState = {
@@ -19,7 +19,7 @@ const reducers = {
   lists: listReducer,
   columns: columnsReducer,
   cards: cardsReducer,
-  searchString: searchString,
+  searchString: searchStringReducer,
 };
 
 // add blank reducers for initial state properties without reducers
