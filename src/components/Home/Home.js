@@ -1,16 +1,13 @@
 import React from 'react';
 import styles from './Home.scss';
-import List from '../List/ListContainer.js';
+import ListLink from '../ListLink/ListLink';
 import {settings} from '../../data/dataStore';
 import PropTypes from 'prop-types';
+import Container from '../Container/Container';
 import Creator from '../Creator/Creator.js';
-import Search from '../Search/SearchContainer.js';
 
 class Home extends React.Component {
-  /*state = {
-    lists: [listData] || [],
-  }*/
-
+ 
   static propTypes = {
     title: PropTypes.node,
     subtitle: PropTypes.node,
@@ -41,13 +38,14 @@ class Home extends React.Component {
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search />
         <div className={styles.creator}>
           <Creator text={settings.listCreatorText} action={addList}/>
         </div>
-        {lists.map(listData => (
-          <List key={listData.id} {...listData} />
-        ))}
+        <Container>
+          {lists.map(listData => (
+            <ListLink key={listData.id} {...listData} />
+          ))}
+        </Container>
       </main>
     );
   }

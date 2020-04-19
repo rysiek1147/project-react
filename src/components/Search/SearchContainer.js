@@ -5,8 +5,6 @@ import * as searchStringSelectors from '../../redux/selectors/searchString';
 
 const mapStateToProps = (state) => ({
   searchString: searchStringSelectors.getSearchString(state),
-  countVisible: searchStringSelectors.countVisibleCards(state),
-  countAll: searchStringSelectors.countAllCards(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

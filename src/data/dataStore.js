@@ -12,6 +12,7 @@ export const settings = {
   search: {
     defaultText: 'Search...',
     icon: 'search',
+    resultsText: 'Searching results',
   },
   info: {
     defaultTitle: 'About App',
@@ -25,7 +26,7 @@ export const settings = {
   },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
-  defaultLogoIcon: 'user',
+  defaultLogoIcon: 'home',
 };
 
 export const pageContents = {
@@ -92,6 +93,18 @@ const lists = [
     description: 'Interesting things I want to check out!',
     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   },
+  {
+    id: 'list-2',
+    title: 'Must have',
+    description: 'Interesting things I want to check out!',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  },
+  {
+    id: 'list-3',
+    title: 'Things to do <sup>soon!</sup>',
+    description: 'Interesting things I want to check out!',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  },
 ];
 
 const columns = [
@@ -116,8 +129,14 @@ const columns = [
   {
     id: 'column-4',
     listId: 'list-2',
-    title: 'Strange column',
-    icon: 'question',
+    title: 'Music',
+    icon: 'music',
+  },
+  {
+    id: 'column-5',
+    listId: 'list-3',
+    title: 'Cars',
+    icon: 'car',
   },
 ];
 

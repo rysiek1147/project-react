@@ -4,13 +4,20 @@ import List from './List';
 import * as columnsActions from '../../redux/actions/columns';
 import * as columnsSelectors from '../../redux/selectors/columns';
 
-const mapStateToProps = (state, props) => ({
-  columns: columnsSelectors.getColumnsForList(state, props.id),
-});
+const mapStateToProps = (state, props) => {
+  const id = props.match.params.id;
+  const filteredList = state.lists.filter(list => list.id == id);
+  const listParams = filteredList[0] || {};
+
+  return {
+    ...listParams,
+    columns: columnsSelectors.getColumnsForList(state, id),
+  };
+};
 
 const mapDispatchToProps = (dispatch, props) => ({
   addColumn: title => dispatch(columnsActions.createActionAddColumn({
-    listId: props.id,
+    listId: props.match.params.id,
     title,
   })),
 });
