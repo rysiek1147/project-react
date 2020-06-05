@@ -30,7 +30,7 @@ class Search extends React.Component {
     });
   }
 
-  handleSuccess(){
+  handleSearch(){
     this.props.history.push(`/search/${this.state.value}`);
   }
 
@@ -54,7 +54,7 @@ class Search extends React.Component {
             onChange={event => this.handleChange(event)}
           />
           <div className={styles.buttons}>
-            <Button onClick={() => this.handleSuccess()}><Icon name={icon} /></Button>
+            <Button onClick={() => this.handleSearch()}><Icon name={icon} /></Button>
           </div>
         </div>
       </Container>
